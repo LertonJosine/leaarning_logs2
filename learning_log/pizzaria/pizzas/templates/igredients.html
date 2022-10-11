@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{pizza}}
+
+<ul>
+    {% for igd in toppings %}
+    <li>{{igd}}</li>
+     {%empty%} 
+     <li>"Nao temos igredientes para esta pizza"</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

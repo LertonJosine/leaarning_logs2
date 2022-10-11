@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{topic}}</h1>
+<ul>
+    {% for entry in entries %}
+    <li>{{entry.date_added|date:'M d, H:i'}}</li>
+    <p>{{entry.text|linebreaks}}</p>
+<a href="{% url 'edit_entry' entry.id%}">  edit_entry  </a>
+     {%empty%}
+     <li>Nao tem nenhuma entrada relacionada a este assunto</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'new_entry' topic.id %}">  add a new entry  </a>
+
+{% endblock content %}
