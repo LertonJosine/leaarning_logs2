@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.urls import path
-from .views import login_page
+from django.urls import path, include
+from .views import accounts
 
 urlpatterns = [
-    path('users/', login_page, name='login_page')
+    # path('', include('django.contrib.auth.urls')),
+    path('', accounts, name="accounts"),
 ]

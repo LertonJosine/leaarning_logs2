@@ -8,7 +8,6 @@ from django.urls import path
 from learning_logs.views import home, topics, topic, new_topic, new_entry, edit_entry
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', home, name='index'),
     path('topics/', topics, name='topics'),
     path('topic/<int:topic_id>/',topic, name='topic'),
