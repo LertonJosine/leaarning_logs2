@@ -22,4 +22,4 @@ urlpatterns = [
     path('', include('learning_logs.urls')),
     path('users/', include('users.urls')),
     path('accounts/',include('users.urls')),
-]
+    ]

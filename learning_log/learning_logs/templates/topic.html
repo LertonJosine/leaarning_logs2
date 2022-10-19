@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block header %}
 <h1>{{topic}}</h1>
+{% endblock header %}
+
+{% block content %}
+
+<p><a href="{% url 'new_entry' topic.id %}">  add a new entry  </a></p>
+
 <ul>
     {% for entry in entries %}
-    <li>{{entry.date_added|date:'M d, H:i'}}</li>
-    <p>{{entry.text|linebreaks}}</p>
-<a href="{% url 'edit_entry' entry.id%}">  edit_entry  </a>
-     {%empty%}
-     <li>Nao tem nenhuma entrada relacionada a este assunto</li>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>{{entry.date_added|date:'M d, H:i'}}
+            <small><a href="{% url 'edit_entry' entry.id%}">  edit_entry  </a></small></h3>    </div>
+
+<div class="panel-body">       {{entry.text|linebreaks}}     
+             {%empty%}
+             <li>Nao tem nenhuma entrada relacionada a este assunto</li>
+        </div></div>
     {% endfor %}
 </ul>
-<a href="{% url 'new_entry' topic.id %}">  add a new entry  </a>
 
 {% endblock content %}
